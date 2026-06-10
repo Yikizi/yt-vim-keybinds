@@ -1,6 +1,6 @@
 # YouTube Vim Keybinds
 
-Vim-style keyboard navigation for YouTube, packaged as a Safari Userscripts-compatible userscript.
+Vim-style keyboard navigation for YouTube, packaged as both a userscript and a standard WebExtension.
 
 ## Shortcuts
 
@@ -19,7 +19,8 @@ Vim-style keyboard navigation for YouTube, packaged as a Safari Userscripts-comp
 - `engine.js` — generic keybinding/navigation engine
 - `sites/youtube.user.js` — YouTube-specific bindings/actions
 - `dist/youtube.user.js` — built userscript installed into Userscripts
-- `scripts/build.mjs` — bundles engine + site script
+- `extension/` — unpacked WebExtension for Helium/Chromium/Firefox browsers
+- `scripts/build.mjs` — bundles engine + site script and writes extension files
 
 ## Build
 
@@ -27,7 +28,13 @@ Vim-style keyboard navigation for YouTube, packaged as a Safari Userscripts-comp
 npm run build
 ```
 
-## Install into Safari Userscripts
+This writes:
+
+- `dist/youtube.user.js`
+- `extension/manifest.json`
+- `extension/youtube.user.js`
+
+## Safari Userscripts
 
 ```bash
 npm run install:safari-userscripts
@@ -37,4 +44,43 @@ Safari Userscripts live path:
 
 ```text
 ~/Library/Containers/com.userscripts.macos.Userscripts-Extension/Data/Documents/scripts/youtube.user.js
+```
+
+## Chromium / Helium / Brave / Chrome / Edge
+
+1. Run `npm run build`.
+2. Open the browser extensions page, e.g. `chrome://extensions`.
+3. Enable developer mode.
+4. Choose **Load unpacked**.
+5. Select this folder:
+
+```text
+/Users/mattias/projects/keybinds/extension
+```
+
+## Firefox
+
+Temporary dev install:
+
+1. Run `npm run build`.
+2. Open `about:debugging#/runtime/this-firefox`.
+3. Click **Load Temporary Add-on…**.
+4. Select:
+
+```text
+/Users/mattias/projects/keybinds/extension/manifest.json
+```
+
+Permanent Firefox install requires packaging/signing an `.xpi` through Mozilla Add-ons, unless using a Firefox build/profile that allows unsigned extensions.
+
+## Package WebExtension zip
+
+```bash
+npm run package:extension
+```
+
+Output:
+
+```text
+dist/youtube-vim-keybinds-extension.zip
 ```

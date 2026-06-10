@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Vim Keybinds",
+  "version": "0.3.0",
+  "description": "Vim-style keyboard shortcuts for YouTube as a userscript and WebExtension.",
+  "permissions": [
+    "clipboardWrite"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "youtube.user.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "youtube-vim-keybinds@mattias.local",
+      "strict_min_version": "109.0"
+    }
+  }
+}
