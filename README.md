@@ -25,7 +25,7 @@ Vim-style keyboard navigation for YouTube, packaged as both a userscript and a s
 ## Build
 
 ```bash
-npm run build
+pnpm build
 ```
 
 This writes:
@@ -37,7 +37,7 @@ This writes:
 ## Safari Userscripts
 
 ```bash
-npm run install:safari-userscripts
+pnpm install:safari-userscripts
 ```
 
 Safari Userscripts live path:
@@ -48,7 +48,7 @@ Safari Userscripts live path:
 
 ## Chromium / Helium / Brave / Chrome / Edge
 
-1. Run `npm run build`.
+1. Run `pnpm build`.
 2. Open the browser extensions page, e.g. `chrome://extensions`.
 3. Enable developer mode.
 4. Choose **Load unpacked**.
@@ -62,7 +62,7 @@ Safari Userscripts live path:
 
 Temporary dev install:
 
-1. Run `npm run build`.
+1. Run `pnpm build`.
 2. Open `about:debugging#/runtime/this-firefox`.
 3. Click **Load Temporary Add-on…**.
 4. Select:
@@ -76,7 +76,7 @@ Permanent Firefox install requires packaging/signing an `.xpi` through Mozilla A
 ## Package WebExtension zip
 
 ```bash
-npm run package:extension
+pnpm package:extension
 ```
 
 Output:
