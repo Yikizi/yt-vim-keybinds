@@ -1,0 +1,11 @@
+{
+  "name": "youtube-vim-keybinds",
+  "version": "0.3.0",
+  "private": true,
+  "description": "Vim-style keyboard shortcuts for YouTube as a userscript.",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "install:safari-userscripts": "npm run build && cp dist/youtube.user.js \"$HOME/Library/Containers/com.userscripts.macos.Userscripts-Extension/Data/Documents/scripts/youtube.user.js\""
+  }
+}
