@@ -83,7 +83,7 @@ const manifest = {
   ],
   browser_specific_settings: {
     gecko: {
-      id: "youtube-vim-keybinds@mattias.local",
+      id: "yt-vim-keybinds@mattias.local",
       strict_min_version: "109.0",
     },
   },

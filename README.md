@@ -1,4 +1,4 @@
-# YouTube Vim Keybinds
+# yt-vim-keybinds
 
 Vim-style keyboard navigation for YouTube, packaged as both a userscript and a standard WebExtension.
 
@@ -55,7 +55,7 @@ Safari Userscripts live path:
 5. Select this folder:
 
 ```text
-/Users/mattias/projects/keybinds/extension
+/Users/mattias/projects/yt-vim-keybinds/extension
 ```
 
 ## Firefox
@@ -68,7 +68,7 @@ Temporary dev install:
 4. Select:
 
 ```text
-/Users/mattias/projects/keybinds/extension/manifest.json
+/Users/mattias/projects/yt-vim-keybinds/extension/manifest.json
 ```
 
 Permanent Firefox install requires packaging/signing an `.xpi` through Mozilla Add-ons, unless using a Firefox build/profile that allows unsigned extensions.
@@ -82,5 +82,5 @@ pnpm package:extension
 Output:
 
 ```text
-dist/youtube-vim-keybinds-extension.zip
+dist/yt-vim-keybinds-extension.zip
 ```
