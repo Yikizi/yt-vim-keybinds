@@ -3,7 +3,7 @@
 // @namespace   keybinds
 // @match       https://www.youtube.com/*
 // @grant       none
-// @version     0.3.0
+// @version     0.3.1
 // @author      mattias
 // @run-at      document-idle
 // @description Keyboard shortcuts for YouTube navigation
@@ -430,6 +430,23 @@ function openSelectedVideo() {
   if (link) link.click();
 }
 
+function openSelectedVideoInNewTab() {
+  const url = getVideoUrl();
+  if (!url) {
+    showKeybindsToast("No video link found", "error");
+    return;
+  }
+
+  const link = document.createElement("a");
+  link.href = url;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.style.display = "none";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+}
+
 async function copySelectedVideoUrl() {
   const url = getVideoUrl();
   if (!url) {
@@ -610,6 +627,7 @@ loadKeybinds([
   { key: "k", action: "focusUp", group: VIDEO_SELECTOR },
   { key: "l", action: "focusNext", group: VIDEO_SELECTOR },
   { key: "o", action: openSelectedVideo },
+  { key: "o", shift: true, action: openSelectedVideoInNewTab },
   { key: "y", action: copySelectedVideoUrl },
   { key: "w", action: addSelectedVideoToWatchLater },
   { key: "x", action: hideSelectedVideo },

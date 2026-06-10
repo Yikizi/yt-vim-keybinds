@@ -8,6 +8,7 @@ Vim-style keyboard navigation for YouTube, packaged as both a userscript and a s
 - `j` / `k` — move down/up in the same visual column
 - Numeric prefixes work: `10k`, `5j`, `3l`, ...
 - `o` — open selected video
+- `O` — open selected video in a new tab
 - `y` — copy selected video URL
 - `w` — add selected video to Watch Later
 - `x` — hide selected video / mark not interested when YouTube exposes that action

@@ -1,6 +1,6 @@
 {
   "name": "yt-vim-keybinds",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "private": true,
   "description": "Vim-style keyboard shortcuts for YouTube as a userscript and WebExtension.",
   "type": "module",
