@@ -633,4 +633,39 @@ loadKeybinds([
   { key: "x", action: hideSelectedVideo },
 ]);
 
+
+// == Shorts feed guard ==
+(() => {
+  function idFromShortsUrl(value) {
+    try {
+      const u = new URL(value, location.href);
+      const m = u.pathname.match(/^\/shorts\/([^/?#]+)/);
+      return m ? m[1] : null;
+    } catch { return null; }
+  }
+
+  function watchUrl(id) {
+    return `/watch?v=${encodeURIComponent(id)}`;
+  }
+
+  function escapeShortsRoute() {
+    const id = idFromShortsUrl(location.href);
+    if (id) location.replace(watchUrl(id));
+  }
+
+  document.addEventListener('click', (event) => {
+    const link = event.target?.closest?.('a[href*="/shorts/"]');
+    if (!link) return;
+    const id = idFromShortsUrl(link.href);
+    if (!id) return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    location.assign(watchUrl(id));
+  }, true);
+
+  escapeShortsRoute();
+  addEventListener('popstate', escapeShortsRoute);
+  addEventListener('yt-navigate-finish', escapeShortsRoute);
+})();
+
 })();
